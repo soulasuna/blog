@@ -1,9 +1,12 @@
 name: Auto Deploy hugo
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-  Explore-GitHub-Actions:
+  build-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
@@ -13,13 +16,13 @@ jobs:
         with:
           hugo-version: latest
       - name: Build 
-        run: hugo
+        run: hugo -D
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }} # secret 中设置好私钥
-          external_repository: soulasuna/soulasuna.github.io  # Page 仓库
-          publish_branch: main  # Page 仓库的分支
-          publish_dir: ./public # 静态网页路径
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          external_repository: soulasuna/soulasuna.github.io
+          publish_branch: main
+          publish_dir: ./public
           commit_message: ${{ github.event.head_commit.message }}
           
