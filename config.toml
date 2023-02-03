@@ -1,0 +1,26 @@
+baseURL = 'https://soulasuna.github.io/'
+languageCode = 'en-us'
+title = 'Soulasuna'
+theme = "m10c"
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 2
+
+[params]
+  author = "Gin"
+  description = "No accumulation of steps,can't lead to thousand miles."
+  menu_item_separator = " / "
+  [[params.social]]
+    icon = "github"
+    name = "Github"
+    url = "https://github.com/soulasuna"
+
